@@ -1,6 +1,7 @@
 package application.dto;
 
 public class CustomerDTO {
+
     private final String firstName;
     private final String lastName;
 
@@ -16,4 +17,5 @@ public class CustomerDTO {
     public String getLastName() {
         return lastName;
     }
+
 }

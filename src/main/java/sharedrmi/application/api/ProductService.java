@@ -8,7 +8,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface AlbumService extends Remote {
+public interface ProductService extends Remote {
 
     List<AlbumDTO> findAlbumsByTitle(String title) throws RemoteException;
 

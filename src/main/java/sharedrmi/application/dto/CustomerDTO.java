@@ -1,4 +1,4 @@
-package application.dto;
+package sharedrmi.application.dto;
 
 public class CustomerDTO {
 

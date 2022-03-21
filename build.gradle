@@ -24,12 +24,8 @@ task cleanBuildFiles(type: Exec) {
 
     String removeBuildFiles_Command = removeCommand + ' ' +
             'sharedrmi.jar ' +
-            'sharedrmi\\application\\api\\CustomerService.class ' +
-            'sharedrmi\\application\\api\\ProductService.class ' +
-            'sharedrmi\\application\\dto\\CustomerDTO.class ' +
-            'sharedrmi\\application\\dto\\AlbumDTO.class ' +
-            'sharedrmi\\application\\dto\\ArtistDTO.class ' +
-            'sharedrmi\\application\\dto\\SongDTO.class '
+            'sharedrmi\\application\\api\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class '
 
     commandLine terminal, arg, removeBuildFiles_Command
 }
@@ -46,12 +42,8 @@ task buildClassFiles(type: Exec) {
     }
 
     String buildClassFiles_Command = 'javac ' +
-            'api\\CustomerService.java ' +
-            'api\\ProductService.java ' +
-            'dto\\CustomerDTO.java ' +
-            'dto\\AlbumDTO.java ' +
-            'dto\\ArtistDTO.java ' +
-            'dto\\SongDTO.java '
+            'api\\*.java ' +
+            'dto\\*.java '
 
     commandLine terminal, arg, buildClassFiles_Command
 }
@@ -68,12 +60,8 @@ task buildJarFile(type: Exec) {
     }
 
     String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
-            'sharedrmi\\application\\api\\CustomerService.class ' +
-            'sharedrmi\\application\\api\\ProductService.class ' +
-            'sharedrmi\\application\\dto\\CustomerDTO.class ' +
-            'sharedrmi\\application\\dto\\AlbumDTO.class ' +
-            'sharedrmi\\application\\dto\\SongDTO.class ' +
-            'sharedrmi\\application\\dto\\ArtistDTO.class'
+            'sharedrmi\\application\\api\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class '
 
     commandLine terminal, arg, buildJarFile_Command
 }

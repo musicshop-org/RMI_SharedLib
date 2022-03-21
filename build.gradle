@@ -9,6 +9,71 @@ repositories {
     mavenCentral()
 }
 
+task cleanBuildFiles(type: Exec) {
+    workingDir "$projectDir\\src\\main\\java"
+
+    String terminal = "sh"
+    String arg = "-c"
+    String removeCommand = "rm"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+        removeCommand = "del"
+    }
+
+    String removeBuildFiles_Command = removeCommand + ' ' +
+            'sharedrmi.jar ' +
+            'sharedrmi\\application\\api\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class '
+
+    commandLine terminal, arg, removeBuildFiles_Command
+}
+
+task buildClassFiles(type: Exec) {
+    workingDir "$projectDir\\src\\main\\java\\sharedrmi\\application"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    String buildClassFiles_Command = 'javac ' +
+            'api\\*.java ' +
+            'dto\\*.java '
+
+    commandLine terminal, arg, buildClassFiles_Command
+}
+
+task buildJarFile(type: Exec) {
+    workingDir "$projectDir\\src\\main\\java"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
+            'sharedrmi\\application\\api\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class '
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task build_SharedRMILib() {
+    dependsOn 'cleanBuildFiles'
+    dependsOn 'buildClassFiles'
+    dependsOn 'buildJarFile'
+    tasks.findByName('buildClassFiles').mustRunAfter 'cleanBuildFiles'
+    tasks.findByName('buildJarFile').mustRunAfter 'buildClassFiles'
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'

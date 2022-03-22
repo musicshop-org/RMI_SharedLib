@@ -1,8 +1,9 @@
-package sharedrmi.application.dto.valueobjects;
+package sharedrmi.domain.valueobjects;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class AlbumId {
+public class AlbumId implements Serializable {
 
     private final UUID albumId;
 

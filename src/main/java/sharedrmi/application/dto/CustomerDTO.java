@@ -1,6 +1,8 @@
 package sharedrmi.application.dto;
 
-public class CustomerDTO {
+import java.io.Serializable;
+
+public class CustomerDTO implements Serializable {
 
     private final String firstName;
     private final String lastName;

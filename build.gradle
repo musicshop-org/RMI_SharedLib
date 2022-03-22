@@ -25,7 +25,7 @@ task cleanBuildFiles(type: Exec) {
     String removeBuildFiles_Command = removeCommand + ' ' +
             'sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
-            'sharedrmi\\application\\dto\\*.class '
+            'sharedrmi\\application\\dto\\**\\*.class '
 
     commandLine terminal, arg, removeBuildFiles_Command
 }
@@ -43,7 +43,7 @@ task buildClassFiles(type: Exec) {
 
     String buildClassFiles_Command = 'javac ' +
             'api\\*.java ' +
-            'dto\\*.java '
+            'dto\\**\\*.java '
 
     commandLine terminal, arg, buildClassFiles_Command
 }
@@ -61,7 +61,7 @@ task buildJarFile(type: Exec) {
 
     String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
-            'sharedrmi\\application\\dto\\*.class '
+            'sharedrmi\\application\\dto\\**\\*.class '
 
     commandLine terminal, arg, buildJarFile_Command
 }

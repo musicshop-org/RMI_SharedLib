@@ -65,7 +65,7 @@ task buildJarFile(type: Exec) {
 
     String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
-            'sharedrmi\\application\\dto\\**\\*.class ' +
+            'sharedrmi\\application\\dto\\*.class ' +
             'sharedrmi\\application\\dto\\enums\\*.class ' +
             'sharedrmi\\application\\dto\\valueobjects\\*.class '
 

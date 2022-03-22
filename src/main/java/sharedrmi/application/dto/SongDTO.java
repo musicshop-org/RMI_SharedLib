@@ -1,46 +1,36 @@
 package sharedrmi.application.dto;
 
+import sharedrmi.application.dto.enums.MediumType;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 public class SongDTO {
 
     private final String title;
-    private final LocalDate releaseDate;
-    private final String genre;
-    private final int length;
-    private final String mediumType;
     private final BigDecimal price;
     private final int stock;
+    private final MediumType mediumType;
+    private final LocalDate releaseDate;
+    private final String genre;
+    private final List<ArtistDTO> artists;
+    private final Set<AlbumDTO> inAlbum;
 
-    public SongDTO(String title, LocalDate releaseDate, String genre, int length, String mediumType, BigDecimal price, int stock) {
+    public SongDTO(String title, BigDecimal price, int stock, MediumType mediumType, LocalDate releaseDate, String genre, List<ArtistDTO> artists, Set<AlbumDTO> inAlbum) {
         this.title = title;
-        this.releaseDate = releaseDate;
-        this.genre = genre;
-        this.length = length;
-        this.mediumType = mediumType;
         this.price = price;
         this.stock = stock;
+        this.mediumType = mediumType;
+        this.releaseDate = releaseDate;
+        this.genre = genre;
+        this.artists = artists;
+        this.inAlbum = inAlbum;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public String getMediumType() {
-        return mediumType;
     }
 
     public BigDecimal getPrice() {
@@ -51,4 +41,23 @@ public class SongDTO {
         return stock;
     }
 
+    public MediumType getMediumType() {
+        return mediumType;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public List<ArtistDTO> getArtists() {
+        return artists;
+    }
+
+    public Set<AlbumDTO> getInAlbum() {
+        return inAlbum;
+    }
 }

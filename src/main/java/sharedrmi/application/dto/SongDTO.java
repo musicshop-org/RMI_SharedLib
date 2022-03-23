@@ -1,13 +1,14 @@
 package sharedrmi.application.dto;
 
-import sharedrmi.application.dto.enums.MediumType;
+import sharedrmi.domain.enums.MediumType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-public class SongDTO {
+public class SongDTO implements Serializable {
 
     private final String title;
     private final BigDecimal price;

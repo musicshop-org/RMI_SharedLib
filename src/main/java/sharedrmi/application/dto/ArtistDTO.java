@@ -1,6 +1,8 @@
 package sharedrmi.application.dto;
 
-public class ArtistDTO {
+import java.io.Serializable;
+
+public class ArtistDTO implements Serializable {
     private final String name;
 
     public ArtistDTO(String name) {

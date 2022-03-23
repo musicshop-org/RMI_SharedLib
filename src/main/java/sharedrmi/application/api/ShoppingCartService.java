@@ -1,4 +1,4 @@
-package application.api;
+package sharedrmi.application.api;
 
 import sharedrmi.application.dto.AlbumDTO;
 import sharedrmi.application.dto.ShoppingCartDTO;

@@ -16,20 +16,4 @@ public class LineItemDTO {
         this.quantity = quantity;
         this.price = price;
     }
-
-    public MediumType getMediumType() {
-        return mediumType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
 }

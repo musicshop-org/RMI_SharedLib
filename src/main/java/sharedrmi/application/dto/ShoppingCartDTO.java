@@ -11,12 +11,4 @@ public class ShoppingCartDTO {
         this.ownerId = ownerId;
         this.lineItems = lineItems;
     }
-
-    public UUID getOwnerId() {
-        return ownerId;
-    }
-
-    public List<LineItemDTO> getLineItems() {
-        return lineItems;
-    }
 }

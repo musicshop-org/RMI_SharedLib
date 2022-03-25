@@ -26,14 +26,14 @@ task cleanBuildFiles(type: Exec) {
             'sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
             'sharedrmi\\application\\dto\\*.class ' +
-            'sharedrmi\\application\\dto\\enums\\*.class ' +
-            'sharedrmi\\application\\dto\\valueobjects\\*.class '
+            'sharedrmi\\domain\\enums\\*.class ' +
+            'sharedrmi\\domain\\valueobjects\\*.class '
 
     commandLine terminal, arg, removeBuildFiles_Command
 }
 
 task buildClassFiles(type: Exec) {
-    workingDir "$projectDir\\src\\main\\java\\sharedrmi\\application"
+    workingDir "$projectDir\\src\\main\\java\\sharedrmi"
 
     String terminal = "sh"
     String arg = "-c"
@@ -44,10 +44,10 @@ task buildClassFiles(type: Exec) {
     }
 
     String buildClassFiles_Command = 'javac ' +
-            'api\\*.java ' +
-            'dto\\*.java ' +
-            'dto\\enums\\*.java ' +
-            'dto\\valueobjects\\*.java '
+            'application\\api\\*.java ' +
+            'application\\dto\\*.java ' +
+            'domain\\enums\\*.java ' +
+            'domain\\valueobjects\\*.java '
 
     commandLine terminal, arg, buildClassFiles_Command
 }
@@ -66,8 +66,8 @@ task buildJarFile(type: Exec) {
     String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
             'sharedrmi\\application\\dto\\*.class ' +
-            'sharedrmi\\application\\dto\\enums\\*.class ' +
-            'sharedrmi\\application\\dto\\valueobjects\\*.class '
+            'sharedrmi\\domain\\enums\\*.class ' +
+            'sharedrmi\\domain\\valueobjects\\*.class '
 
     commandLine terminal, arg, buildJarFile_Command
 }

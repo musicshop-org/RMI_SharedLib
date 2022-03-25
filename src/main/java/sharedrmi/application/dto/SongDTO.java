@@ -1,5 +1,7 @@
 package sharedrmi.application.dto;
 
+import lombok.Builder;
+import lombok.Getter;
 import sharedrmi.domain.enums.MediumType;
 
 import java.io.Serializable;
@@ -8,6 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
+@Getter
 public class SongDTO implements Serializable {
 
     private final String title;
@@ -19,6 +22,7 @@ public class SongDTO implements Serializable {
     private final List<ArtistDTO> artists;
     private final Set<AlbumDTO> inAlbum;
 
+    @Builder
     public SongDTO(String title, BigDecimal price, int stock, MediumType mediumType, LocalDate releaseDate, String genre, List<ArtistDTO> artists, Set<AlbumDTO> inAlbum) {
         this.title = title;
         this.price = price;
@@ -30,35 +34,4 @@ public class SongDTO implements Serializable {
         this.inAlbum = inAlbum;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public MediumType getMediumType() {
-        return mediumType;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public List<ArtistDTO> getArtists() {
-        return artists;
-    }
-
-    public Set<AlbumDTO> getInAlbum() {
-        return inAlbum;
-    }
 }

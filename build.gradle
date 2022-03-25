@@ -9,6 +9,7 @@ repositories {
     mavenCentral()
 }
 
+/*
 task cleanBuildFiles(type: Exec) {
     workingDir "$projectDir\\src\\main\\java"
 
@@ -51,9 +52,11 @@ task buildClassFiles(type: Exec) {
 
     commandLine terminal, arg, buildClassFiles_Command
 }
+*/
 
 task buildJarFile(type: Exec) {
-    workingDir "$projectDir\\src\\main\\java"
+    workingDir "$projectDir\\build\\classes\\java\\main"
+    // workingDir "$projectDir\\src\\main\\java"
 
     String terminal = "sh"
     String arg = "-c"
@@ -73,14 +76,18 @@ task buildJarFile(type: Exec) {
 }
 
 task build_SharedRMILib() {
-    dependsOn 'cleanBuildFiles'
-    dependsOn 'buildClassFiles'
+    // dependsOn 'cleanBuildFiles'
+    // dependsOn 'buildClassFiles'
     dependsOn 'buildJarFile'
-    tasks.findByName('buildClassFiles').mustRunAfter 'cleanBuildFiles'
-    tasks.findByName('buildJarFile').mustRunAfter 'buildClassFiles'
+
+    // tasks.findByName('buildClassFiles').mustRunAfter 'cleanBuildFiles'
+    // tasks.findByName('buildJarFile').mustRunAfter 'buildClassFiles'
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.22'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }

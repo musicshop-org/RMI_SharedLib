@@ -4,10 +4,11 @@ import lombok.Builder;
 import lombok.Getter;
 import sharedrmi.domain.enums.MediumType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
-public class LineItemDTO {
+public class LineItemDTO implements Serializable {
 
     private final MediumType mediumType;
     private final String name;

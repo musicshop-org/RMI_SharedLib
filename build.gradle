@@ -9,9 +9,9 @@ repositories {
     mavenCentral()
 }
 
-/*
 task cleanBuildFiles(type: Exec) {
-    workingDir "$projectDir\\src\\main\\java"
+    workingDir "$projectDir\\build\\classes\\java\\main"
+    //    workingDir "$projectDir\\src\\main\\java"
 
     String terminal = "sh"
     String arg = "-c"
@@ -23,16 +23,12 @@ task cleanBuildFiles(type: Exec) {
         removeCommand = "del"
     }
 
-    String removeBuildFiles_Command = removeCommand + ' ' +
-            'sharedrmi.jar ' +
-            'sharedrmi\\application\\api\\*.class ' +
-            'sharedrmi\\application\\dto\\*.class ' +
-            'sharedrmi\\domain\\enums\\*.class ' +
-            'sharedrmi\\domain\\valueobjects\\*.class '
+    String removeBuildFiles_Command = removeCommand + ' ' + 'sharedrmi.jar'
 
     commandLine terminal, arg, removeBuildFiles_Command
 }
 
+/*
 task buildClassFiles(type: Exec) {
     workingDir "$projectDir\\src\\main\\java\\sharedrmi"
 
@@ -76,12 +72,10 @@ task buildJarFile(type: Exec) {
 }
 
 task build_SharedRMILib() {
-    // dependsOn 'cleanBuildFiles'
-    // dependsOn 'buildClassFiles'
+    dependsOn 'cleanBuildFiles'
     dependsOn 'buildJarFile'
 
-    // tasks.findByName('buildClassFiles').mustRunAfter 'cleanBuildFiles'
-    // tasks.findByName('buildJarFile').mustRunAfter 'buildClassFiles'
+    tasks.findByName('buildJarFile').mustRunAfter 'cleanBuildFiles'
 }
 
 dependencies {

@@ -1,22 +1,22 @@
 package sharedrmi.application.dto;
 
+import lombok.Builder;
+import lombok.Getter;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-public class ShoppingCartDTO {
-    private final UUID ownerId;
-    private List<LineItemDTO> lineItems;
+@Getter
+public class ShoppingCartDTO implements Serializable {
 
+    private final UUID ownerId;
+    private final List<LineItemDTO> lineItems;
+
+    @Builder
     public ShoppingCartDTO(UUID ownerId, List<LineItemDTO> lineItems) {
         this.ownerId = ownerId;
         this.lineItems = lineItems;
     }
 
-    public UUID getOwnerId() {
-        return ownerId;
-    }
-
-    public List<LineItemDTO> getLineItems() {
-        return lineItems;
-    }
 }

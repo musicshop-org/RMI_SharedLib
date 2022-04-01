@@ -2,8 +2,8 @@ package sharedrmi.communication.rmi;
 
 import sharedrmi.application.api.ProductService;
 import sharedrmi.application.api.ShoppingCartService;
+import sharedrmi.domain.valueobjects.Role;
 
-import javax.management.relation.Role;
 import java.rmi.Remote;
 import java.util.List;
 

@@ -10,11 +10,11 @@ import java.util.UUID;
 @Getter
 public class ShoppingCartDTO implements Serializable {
 
-    private final UUID ownerId;
+    private final String ownerId;
     private final List<LineItemDTO> lineItems;
 
     @Builder
-    public ShoppingCartDTO(UUID ownerId, List<LineItemDTO> lineItems) {
+    public ShoppingCartDTO(String ownerId, List<LineItemDTO> lineItems) {
         this.ownerId = ownerId;
         this.lineItems = lineItems;
     }

@@ -8,12 +8,12 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface ProductService {
+public interface ProductService extends Remote{
 
-    List<AlbumDTO> findAlbumsBySongTitle(String title);
+    List<AlbumDTO> findAlbumsBySongTitle(String title) throws RemoteException;
 
-    List<SongDTO> findSongsByTitle(String title);
+    List<SongDTO> findSongsByTitle(String title) throws RemoteException;
 
-    List<ArtistDTO> findArtistsByName(String name);
+    List<ArtistDTO> findArtistsByName(String name) throws RemoteException;
 
 }

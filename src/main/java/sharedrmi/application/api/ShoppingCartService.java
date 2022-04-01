@@ -7,14 +7,14 @@ import sharedrmi.application.dto.ShoppingCartDTO;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ShoppingCartService {
+public interface ShoppingCartService extends Remote{
 
-    ShoppingCartDTO getCart();
+    ShoppingCartDTO getCart() throws RemoteException;
 
-    void addProductToCart(AlbumDTO album, int amount);
+    void addProductToCart(AlbumDTO album, int amount) throws RemoteException;
 
-    void changeQuantity(LineItemDTO lineItemDTO, int quantity);
+    void changeQuantity(LineItemDTO lineItemDTO, int quantity) throws RemoteException;
 
-    void removeProductFromCart(LineItemDTO lineItemDTO);
+    void removeProductFromCart(LineItemDTO lineItemDTO) throws RemoteException;
 
 }

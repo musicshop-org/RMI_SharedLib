@@ -5,11 +5,11 @@ import sharedrmi.domain.valueobjects.InvoiceId;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.List;
+import java.util.Optional;
 
 public interface InvoiceService extends Remote {
 
-    List<InvoiceDTO> findInvoiceById(InvoiceId invoiceId) throws RemoteException;
+    Optional<InvoiceDTO> findInvoiceById(InvoiceId invoiceId) throws RemoteException;
 
     void createInvoice(InvoiceDTO invoiceDTO) throws RemoteException;
 

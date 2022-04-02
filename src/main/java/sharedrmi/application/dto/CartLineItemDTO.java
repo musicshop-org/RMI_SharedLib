@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
-public class LineItemDTO implements Serializable {
+public class CartLineItemDTO implements Serializable {
 
     private final MediumType mediumType;
     private final String name;
@@ -16,7 +16,7 @@ public class LineItemDTO implements Serializable {
     private final BigDecimal price;
 
     @Builder
-    public LineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price) {
+    public CartLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price) {
         this.mediumType = mediumType;
         this.name = name;
         this.quantity = quantity;

@@ -15,4 +15,8 @@ public class InvoiceId implements Serializable {
         this.invoiceId = LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
     }
 
+    public InvoiceId(long invoiceId) {
+        this.invoiceId = invoiceId;
+    }
+
 }

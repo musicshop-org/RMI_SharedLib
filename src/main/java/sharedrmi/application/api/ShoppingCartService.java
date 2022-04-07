@@ -17,4 +17,6 @@ public interface ShoppingCartService extends Remote{
 
     void removeProductFromCart(CartLineItemDTO cartLineItemDTO) throws RemoteException;
 
+    void clearCart() throws RemoteException;
+
 }

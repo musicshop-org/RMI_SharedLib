@@ -6,6 +6,8 @@ import sharedrmi.domain.enums.MediumType;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class InvoiceLineItemDTO implements Serializable {
@@ -23,4 +25,15 @@ public class InvoiceLineItemDTO implements Serializable {
         this.price = price;
     }
 
+    public static List<InvoiceLineItemDTO> createFromCartLineItemDTOs(List<CartLineItemDTO> cartLineItemDTOs){
+        return cartLineItemDTOs
+                .stream()
+                .map(cartLineItemDTO ->
+                        InvoiceLineItemDTO.builder()
+                                .mediumType(cartLineItemDTO.getMediumType())
+                                .name(cartLineItemDTO.getName())
+                                .quantity(cartLineItemDTO.getQuantity())
+                                .price(cartLineItemDTO.getPrice()).build())
+                .collect(Collectors.toList());
+    }
 }

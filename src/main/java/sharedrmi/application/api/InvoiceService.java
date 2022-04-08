@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 
 public interface InvoiceService extends Remote {
 
-    InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws RemoteException;
+    InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws RemoteException, Exception;
 
     void createInvoice(InvoiceDTO invoiceDTO) throws RemoteException;
 

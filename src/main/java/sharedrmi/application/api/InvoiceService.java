@@ -11,5 +11,5 @@ public interface InvoiceService extends Remote {
 
     InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws RemoteException, Exception;
     void createInvoice(InvoiceDTO invoiceDTO) throws RemoteException;
-    void returnInvoiceLineItem(InvoiceId invoiceId, InvoiceLineItemDTO invoiceLineItemDTO, int returnQuantity);
+    void returnInvoiceLineItem(InvoiceId invoiceId, InvoiceLineItemDTO invoiceLineItemDTO, int returnQuantity) throws RemoteException, Exception;
 }

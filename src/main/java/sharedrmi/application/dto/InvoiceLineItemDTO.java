@@ -16,13 +16,15 @@ public class InvoiceLineItemDTO implements Serializable {
     private final String name;
     private final int quantity;
     private final BigDecimal price;
+    private final int returnedQuantity;
 
     @Builder
-    public InvoiceLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price) {
+    public InvoiceLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int returnedQuantity) {
         this.mediumType = mediumType;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.returnedQuantity = returnedQuantity;
     }
 
     public static List<InvoiceLineItemDTO> createFromCartLineItemDTOs(List<CartLineItemDTO> cartLineItemDTOs){
@@ -33,7 +35,8 @@ public class InvoiceLineItemDTO implements Serializable {
                                 .mediumType(cartLineItemDTO.getMediumType())
                                 .name(cartLineItemDTO.getName())
                                 .quantity(cartLineItemDTO.getQuantity())
-                                .price(cartLineItemDTO.getPrice()).build())
+                                .price(cartLineItemDTO.getPrice())
+                                .returnedQuantity(0).build())
                 .collect(Collectors.toList());
     }
 }

@@ -9,10 +9,14 @@ import java.time.ZoneId;
 @Getter
 public class InvoiceId implements Serializable {
 
-    private final long id;
+    private final long invoiceId;
 
     public InvoiceId() {
-        this.id = LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
+        this.invoiceId = LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
+    }
+
+    public InvoiceId(long invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
 }

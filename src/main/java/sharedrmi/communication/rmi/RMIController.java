@@ -1,5 +1,6 @@
 package sharedrmi.communication.rmi;
 
+import sharedrmi.application.api.InvoiceService;
 import sharedrmi.application.api.CustomerService;
 import sharedrmi.application.api.ProductService;
 import sharedrmi.application.api.ShoppingCartService;
@@ -9,7 +10,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface RMIController extends ProductService, ShoppingCartService, CustomerService, Remote {
+public interface RMIController extends ProductService, ShoppingCartService, InvoiceService, CustomerService, Remote {
     List<Role> getRoles() throws RemoteException;
     String getUsername() throws RemoteException;
 }

@@ -1,6 +1,8 @@
 package sharedrmi.application.exceptions;
 
-public class InvoiceNotFoundException extends Exception {
+import java.io.Serializable;
+
+public class InvoiceNotFoundException extends Exception implements Serializable {
 
     public InvoiceNotFoundException(String message) {
         super(message);

@@ -20,5 +20,5 @@ public interface ProductService extends Remote{
 
     List<ArtistDTO> findArtistsByName(String name) throws RemoteException;
 
-    void decreaseStockOfAlbum(String title, MediumType mediumType);
+    void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount);
 }

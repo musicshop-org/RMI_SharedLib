@@ -12,6 +12,8 @@ public interface ProductService extends Remote{
 
     List<AlbumDTO> findAlbumsBySongTitle(String title) throws RemoteException;
 
+    List<AlbumDTO> findAlbumsByAlbumTitle(String title) throws RemoteException;
+
     List<SongDTO> findSongsByTitle(String title) throws RemoteException;
 
     List<ArtistDTO> findArtistsByName(String name) throws RemoteException;

@@ -5,18 +5,17 @@ import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 public class ShoppingCartDTO implements Serializable {
 
-    private final UUID ownerId;
-    private final List<LineItemDTO> lineItems;
+    private final String ownerId;
+    private final List<CartLineItemDTO> cartLineItems;
 
     @Builder
-    public ShoppingCartDTO(UUID ownerId, List<LineItemDTO> lineItems) {
+    public ShoppingCartDTO(String ownerId, List<CartLineItemDTO> cartLineItems) {
         this.ownerId = ownerId;
-        this.lineItems = lineItems;
+        this.cartLineItems = cartLineItems;
     }
 
 }

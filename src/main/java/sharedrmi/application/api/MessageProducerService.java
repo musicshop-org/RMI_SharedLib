@@ -1,10 +1,11 @@
 package sharedrmi.application.api;
 
+import javax.jms.JMSException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
 public interface MessageProducerService extends Remote {
 
-    void publish(List<String> topics , String title, String messageText) throws RemoteException;
+    void publish(List<String> topics , String title, String messageText) throws RemoteException, JMSException;
 }

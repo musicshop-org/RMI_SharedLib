@@ -9,4 +9,6 @@ import java.util.List;
 public interface MessageProducerService extends Remote {
 
     void publish(List<String> topics , String title, String messageText, long expirationDays) throws RemoteException, NoPermissionException;
+
+    List<String> getAllTopics() throws RemoteException;
 }

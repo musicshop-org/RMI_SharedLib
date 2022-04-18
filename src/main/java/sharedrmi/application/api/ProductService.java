@@ -11,7 +11,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface ProductService extends Remote{
+public interface ProductService extends Remote {
 
     List<AlbumDTO> findAlbumsBySongTitle(String title) throws RemoteException;
 
@@ -23,6 +23,6 @@ public interface ProductService extends Remote{
 
     void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException, NoPermissionException;
 
-    void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException;
+    void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException, NoPermissionException;
 
 }

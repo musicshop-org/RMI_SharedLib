@@ -6,6 +6,7 @@ import sharedrmi.application.dto.SongDTO;
 import sharedrmi.application.exceptions.AlbumNotFoundException;
 import sharedrmi.domain.enums.MediumType;
 
+import javax.naming.NoPermissionException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
@@ -20,7 +21,7 @@ public interface ProductService extends Remote{
 
     List<ArtistDTO> findArtistsByName(String name) throws RemoteException;
 
-    void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException;
+    void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException, NoPermissionException;
 
     void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException;
 

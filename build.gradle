@@ -62,7 +62,7 @@ task buildJarFile(type: Exec) {
         arg = "/c"
     }
 
-    String buildJarFile_Command = 'jar cf sharedrmi.jar ' +
+    String buildJarFile_Command = 'jar cf .\\sharedrmi\\sharedrmi.jar ' +
             'sharedrmi\\application\\api\\*.class ' +
             'sharedrmi\\application\\dto\\*.class ' +
             'sharedrmi\\application\\exceptions\\*.class ' +
@@ -73,11 +73,70 @@ task buildJarFile(type: Exec) {
     commandLine terminal, arg, buildJarFile_Command
 }
 
+task addModuleInfo(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "jdeps --generate-module-info . .\\sharedrmi.jar"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task addModuleInfo_2(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" sharedrmi\\module-info.java"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
+task addModuleInfo_3(type: Exec) {
+    workingDir "$projectDir\\build\\classes\\java\\main"
+
+    String terminal = "sh"
+    String arg = "-c"
+
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        terminal = "cmd"
+        arg = "/c"
+    }
+
+    //String buildJarFile_Command = "javac --patch-module sharedrmi=\"$projectDir\\build\\classes\\java\\main\" module-info.java"
+    String buildJarFile_Command = "jar uf .\\sharedrmi\\sharedrmi.jar -C sharedrmi module-info.class"
+
+    //javac --patch-module <module_name>=<jar_path> <module_name>/module-info.java jar uf <jar_path> -C <module_name> module-info.class
+
+    commandLine terminal, arg, buildJarFile_Command
+}
+
 task build_SharedRMILib() {
     dependsOn 'cleanBuildFiles'
     dependsOn 'buildJarFile'
+    dependsOn 'addModuleInfo'
 
     tasks.findByName('buildJarFile').mustRunAfter 'cleanBuildFiles'
+    tasks.findByName('addModuleInfo').mustRunAfter 'buildJarFile'
 }
 
 dependencies {

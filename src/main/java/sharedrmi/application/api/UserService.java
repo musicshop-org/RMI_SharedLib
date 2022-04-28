@@ -2,22 +2,23 @@ package sharedrmi.application.api;
 
 import sharedrmi.application.exceptions.UserNotFoundException;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import javax.ejb.Remote;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface UserService extends Remote {
+@Remote
+public interface UserService {
 
-    List<String> getAllTopics() throws RemoteException;
+    List<String> getAllTopics();
 
-    List<String> getSubscribedTopicsForUser(String username) throws RemoteException;
+    List<String> getSubscribedTopicsForUser(String username);
 
-    void changeLastViewed(String username, LocalDateTime lastViewed) throws UserNotFoundException, RemoteException;
+    void changeLastViewed(String username, LocalDateTime lastViewed) throws UserNotFoundException;
 
-    LocalDateTime getLastViewedForUser(String username) throws RemoteException, UserNotFoundException;
+    LocalDateTime getLastViewedForUser(String username) throws UserNotFoundException;
 
-    boolean subscribe(String topic, String username) throws RemoteException;
+    boolean subscribe(String topic, String username);
 
-    boolean unsubscribe(String topic, String username) throws RemoteException;
+    boolean unsubscribe(String topic, String username);
 }

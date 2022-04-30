@@ -21,9 +21,10 @@ public class AlbumDTO implements Serializable {
     private final AlbumId albumId;
     private final String label;
     private final Set<SongDTO> songs;
+    private int quantityToAddToCart;
 
     @Builder
-    public AlbumDTO(String title, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs) {
+    public AlbumDTO(String title, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs, int quantityToAddToCart) {
         this.title = title;
         this.price = price;
         this.stock = stock;
@@ -32,6 +33,7 @@ public class AlbumDTO implements Serializable {
         this.albumId = albumId;
         this.label = label;
         this.songs = songs;
+        this.quantityToAddToCart = quantityToAddToCart;
     }
 
 }

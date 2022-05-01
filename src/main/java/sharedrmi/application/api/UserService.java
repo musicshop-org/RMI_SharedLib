@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Remote
-public interface UserService {
+public interface UserService extends Serializable  {
 
     List<String> getAllTopics();
 

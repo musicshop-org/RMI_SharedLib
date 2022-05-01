@@ -9,9 +9,10 @@ import sharedrmi.domain.valueobjects.InvoiceId;
 
 import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
+import java.io.Serializable;
 
 @Remote
-public interface InvoiceService {
+public interface InvoiceService extends Serializable {
 
     InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws NoPermissionException, InvoiceNotFoundException;
 

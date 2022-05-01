@@ -6,9 +6,10 @@ import sharedrmi.application.dto.ShoppingCartDTO;
 
 import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
+import java.io.Serializable;
 
 @Remote
-public interface ShoppingCartService{
+public interface ShoppingCartService extends Serializable {
 
     ShoppingCartDTO getCart() throws NoPermissionException;
 

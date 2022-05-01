@@ -17,13 +17,13 @@ public class SongDTO implements Serializable {
     private final BigDecimal price;
     private final int stock;
     private final MediumType mediumType;
-    private final LocalDate releaseDate;
+    private final String releaseDate;
     private final String genre;
     private final List<ArtistDTO> artists;
     private final Set<AlbumDTO> inAlbum;
 
     @Builder
-    public SongDTO(String title, BigDecimal price, int stock, MediumType mediumType, LocalDate releaseDate, String genre, List<ArtistDTO> artists, Set<AlbumDTO> inAlbum) {
+    public SongDTO(String title, BigDecimal price, int stock, MediumType mediumType, String releaseDate, String genre, List<ArtistDTO> artists, Set<AlbumDTO> inAlbum) {
         this.title = title;
         this.price = price;
         this.stock = stock;

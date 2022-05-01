@@ -12,6 +12,7 @@ import javax.security.auth.login.FailedLoginException;
 
 @Remote
 public interface RMIController extends ProductService, ShoppingCartService, InvoiceService, CustomerService, MessageProducerService, UserService, Serializable {
+    void login(String username, String password) throws FailedLoginException, RemoteException, AccessDeniedException;
     List<Role> getRoles();
     String getUsername();
 }

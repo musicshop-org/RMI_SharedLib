@@ -2,11 +2,12 @@ package sharedrmi.application.api;
 
 import sharedrmi.application.dto.CustomerDTO;
 
+import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import java.io.Serializable;
 import java.util.List;
 
-public interface CustomerService extends Remote {
-    List<CustomerDTO> findCustomersByName(String name) throws RemoteException, NoPermissionException;
+@Remote
+public interface CustomerService extends Serializable {
+    List<CustomerDTO> findCustomersByName(String name) throws NoPermissionException;
 }

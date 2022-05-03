@@ -2,29 +2,30 @@ package sharedrmi.application.api;
 
 import sharedrmi.application.dto.AlbumDTO;
 import sharedrmi.application.dto.ArtistDTO;
-import sharedrmi.application.dto.CartLineItemDTO;
 import sharedrmi.application.dto.SongDTO;
 import sharedrmi.application.exceptions.AlbumNotFoundException;
 import sharedrmi.application.exceptions.NotEnoughStockException;
 import sharedrmi.domain.enums.MediumType;
 
+import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+
+import java.io.Serializable;
 import java.util.List;
 
-public interface ProductService extends Remote {
+@Remote
+public interface ProductService extends Serializable {
 
-    List<AlbumDTO> findAlbumsBySongTitle(String title) throws RemoteException;
+    List<AlbumDTO> findAlbumsBySongTitle(String title);
 
-    AlbumDTO findAlbumByAlbumTitleAndMedium(String title, MediumType mediumType) throws RemoteException, AlbumNotFoundException;
+    AlbumDTO findAlbumByAlbumTitleAndMedium(String title, MediumType mediumType) throws AlbumNotFoundException;
 
-    List<SongDTO> findSongsByTitle(String title) throws RemoteException;
+    List<SongDTO> findSongsByTitle(String title);
 
-    List<ArtistDTO> findArtistsByName(String name) throws RemoteException;
+    List<ArtistDTO> findArtistsByName(String name);
 
-    void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException, NoPermissionException, NotEnoughStockException;
+    void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws NoPermissionException, NotEnoughStockException;
 
-    void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws RemoteException, NoPermissionException;
+    void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws NoPermissionException;
 
 }

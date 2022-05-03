@@ -7,16 +7,17 @@ import sharedrmi.application.exceptions.InvoiceNotFoundException;
 import sharedrmi.application.exceptions.NotEnoughStockException;
 import sharedrmi.domain.valueobjects.InvoiceId;
 
+import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import java.io.Serializable;
 
-public interface InvoiceService extends Remote {
+@Remote
+public interface InvoiceService extends Serializable {
 
-    InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws RemoteException, NoPermissionException, InvoiceNotFoundException;
+    InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws NoPermissionException, InvoiceNotFoundException;
 
-    void createInvoice(InvoiceDTO invoiceDTO) throws RemoteException, NoPermissionException, NotEnoughStockException, AlbumNotFoundException;
+    void createInvoice(InvoiceDTO invoiceDTO) throws NoPermissionException, NotEnoughStockException, AlbumNotFoundException;
 
-    void returnInvoiceLineItem(InvoiceId invoiceId, InvoiceLineItemDTO invoiceLineItemDTO, int returnQuantity) throws RemoteException, NoPermissionException, InvoiceNotFoundException;
+    void returnInvoiceLineItem(InvoiceId invoiceId, InvoiceLineItemDTO invoiceLineItemDTO, int returnQuantity) throws NoPermissionException, InvoiceNotFoundException;
 
 }

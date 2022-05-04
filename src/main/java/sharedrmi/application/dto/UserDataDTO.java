@@ -7,14 +7,14 @@ import java.io.Serializable;
 @Getter
 public class UserDataDTO implements Serializable {
 
-    private String username;
+    private String emailAddress;
     private String password;
 
     public UserDataDTO(){}
 
     @Builder
-    public UserDataDTO(String username, String password) {
-        this.username = username;
+    public UserDataDTO(String emailAddress, String password) {
+        this.emailAddress = emailAddress;
         this.password = password;
     }
 }

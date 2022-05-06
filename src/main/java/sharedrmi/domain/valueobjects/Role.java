@@ -1,5 +1,5 @@
 package sharedrmi.domain.valueobjects;
 
 public enum Role {
-    SALESPERSON,OPERATOR
+    SALESPERSON,OPERATOR,CUSTOMER,LICENSEE
 }

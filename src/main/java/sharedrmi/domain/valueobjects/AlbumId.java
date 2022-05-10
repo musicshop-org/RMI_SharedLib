@@ -15,6 +15,10 @@ public class AlbumId implements Serializable {
         this.albumId = UUID.randomUUID();
     }
 
+    public AlbumId(String albumId) {
+        this.albumId = UUID.fromString(albumId);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

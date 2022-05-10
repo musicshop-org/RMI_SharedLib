@@ -24,6 +24,8 @@ public interface ProductService extends Serializable {
 
     List<ArtistDTO> findArtistsByName(String name);
 
+    AlbumDTO findAlbumByAlbumId(String albumId) throws AlbumNotFoundException;
+
     void decreaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws NoPermissionException, NotEnoughStockException;
 
     void increaseStockOfAlbum(String title, MediumType mediumType, int decreaseAmount) throws NoPermissionException;

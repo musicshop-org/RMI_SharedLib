@@ -12,11 +12,14 @@ import java.util.stream.Collectors;
 @Getter
 public class InvoiceLineItemDTO implements Serializable {
 
-    private final MediumType mediumType;
-    private final String name;
-    private final int quantity;
-    private final BigDecimal price;
-    private final int returnedQuantity;
+    private MediumType mediumType;
+    private String name;
+    private int quantity;
+    private BigDecimal price;
+    private int returnedQuantity;
+
+    public InvoiceLineItemDTO() {
+    }
 
     @Builder
     public InvoiceLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int returnedQuantity) {

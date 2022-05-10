@@ -16,7 +16,7 @@ public interface InvoiceService extends Serializable {
 
     InvoiceDTO findInvoiceById(InvoiceId invoiceId) throws NoPermissionException, InvoiceNotFoundException;
 
-    void createInvoice(InvoiceDTO invoiceDTO) throws NoPermissionException, NotEnoughStockException, AlbumNotFoundException;
+    InvoiceId createInvoice(InvoiceDTO invoiceDTO) throws NoPermissionException, NotEnoughStockException, AlbumNotFoundException;
 
     void returnInvoiceLineItem(InvoiceId invoiceId, InvoiceLineItemDTO invoiceLineItemDTO, int returnQuantity) throws NoPermissionException, InvoiceNotFoundException;
 

@@ -18,6 +18,8 @@ public interface ProductService extends Serializable {
 
     List<AlbumDTO> findAlbumsBySongTitle(String title);
 
+    List<AlbumDTO> findAlbumsBySongTitleDigital(String title);
+
     AlbumDTO findAlbumByAlbumTitleAndMedium(String title, MediumType mediumType) throws AlbumNotFoundException;
 
     List<SongDTO> findSongsByTitle(String title);

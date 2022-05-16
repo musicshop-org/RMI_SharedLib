@@ -15,14 +15,16 @@ public class CartLineItemDTO implements Serializable {
     private final int quantity;
     private final BigDecimal price;
     private final int stock;
+    private final String imageUrl;
 
     @Builder
-    public CartLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int stock) {
+    public CartLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int stock, String imageUrl) {
         this.mediumType = mediumType;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
         this.stock = stock;
+        this.imageUrl = imageUrl;
     }
 
 }

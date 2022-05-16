@@ -14,6 +14,7 @@ import java.util.Set;
 public class AlbumDTO implements Serializable {
 
     private String title;
+    private String imageUrl;
     private BigDecimal price;
     private int stock;
     private MediumType mediumType;
@@ -26,8 +27,9 @@ public class AlbumDTO implements Serializable {
     public AlbumDTO() {}
 
     @Builder
-    public AlbumDTO(String title, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs, int quantityToAddToCart) {
+    public AlbumDTO(String title, String imageUrl, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs, int quantityToAddToCart) {
         this.title = title;
+        this.imageUrl = imageUrl;
         this.price = price;
         this.stock = stock;
         this.mediumType = mediumType;

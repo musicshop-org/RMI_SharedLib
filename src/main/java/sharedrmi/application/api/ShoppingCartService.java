@@ -15,13 +15,13 @@ public interface ShoppingCartService extends Serializable {
 
     ShoppingCartDTO getCart() throws NoPermissionException;
 
-    void addProductToCart(AlbumDTO album, int amount) throws NoPermissionException;
+    void addAlbumsToCart(AlbumDTO album, int amount) throws NoPermissionException;
 
     void addSongsToCart(List<SongDTO> songs) throws NoPermissionException;
 
     void changeQuantity(CartLineItemDTO cartLineItemDTO, int quantity) throws NoPermissionException;
 
-    void removeProductFromCart(CartLineItemDTO cartLineItemDTO) throws NoPermissionException;
+    void removeLineItemFromCart(CartLineItemDTO cartLineItemDTO) throws NoPermissionException;
 
     void clearCart() throws NoPermissionException;
 

@@ -18,12 +18,13 @@ public class CartLineItemDTO implements Serializable {
     private int stock;
     private String imageUrl;
     private ProductType productType;
+    private String artist;
 
     public CartLineItemDTO() {
     }
 
     @Builder
-    public CartLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int stock, String imageUrl, ProductType productType) {
+    public CartLineItemDTO(MediumType mediumType, String name, int quantity, BigDecimal price, int stock, String imageUrl, ProductType productType, String artist) {
         this.mediumType = mediumType;
         this.name = name;
         this.quantity = quantity;
@@ -31,6 +32,7 @@ public class CartLineItemDTO implements Serializable {
         this.stock = stock;
         this.imageUrl = imageUrl;
         this.productType = productType;
+        this.artist = artist;
     }
 
 }

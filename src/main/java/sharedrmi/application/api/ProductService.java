@@ -9,7 +9,6 @@ import sharedrmi.domain.enums.MediumType;
 
 import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,6 +16,8 @@ import java.util.List;
 public interface ProductService extends Serializable {
 
     List<AlbumDTO> findAlbumsBySongTitle(String title);
+
+    List<AlbumDTO> findAlbumsBySongTitleDigital(String title);
 
     AlbumDTO findAlbumByAlbumTitleAndMedium(String title, MediumType mediumType) throws AlbumNotFoundException;
 

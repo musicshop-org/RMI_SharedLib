@@ -13,7 +13,7 @@ import java.util.Set;
 public class AlbumDTO implements Serializable {
 
     private String title;
-    private String imageUrl;
+    private String imageUrl = " ";
     private BigDecimal price;
     private int stock;
     private MediumType mediumType;

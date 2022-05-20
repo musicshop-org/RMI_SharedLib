@@ -8,7 +8,10 @@ import java.io.Serializable;
 @Getter
 public class ArtistDTO implements Serializable {
 
-    private final String name;
+    private String name;
+
+    public ArtistDTO() {
+    }
 
     @Builder
     public ArtistDTO(String name) {

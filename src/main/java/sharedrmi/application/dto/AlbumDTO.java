@@ -7,14 +7,13 @@ import sharedrmi.domain.valueobjects.AlbumId;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Set;
 
 @Getter
 public class AlbumDTO implements Serializable {
 
     private String title;
-    private String imageUrl;
+    private String imageUrl = " ";
     private BigDecimal price;
     private int stock;
     private MediumType mediumType;

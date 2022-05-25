@@ -14,7 +14,7 @@ public class AlbumDTO implements Serializable {
 
     private long longId;
     private String title;
-    private String imageUrl;
+    private String imageUrl = " ";
     private BigDecimal price;
     private int stock;
     private MediumType mediumType;

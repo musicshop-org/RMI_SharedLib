@@ -12,6 +12,7 @@ import java.util.Set;
 @Getter
 public class AlbumDTO implements Serializable {
 
+    private long longId;
     private String title;
     private String imageUrl = " ";
     private BigDecimal price;
@@ -26,7 +27,7 @@ public class AlbumDTO implements Serializable {
     public AlbumDTO() {}
 
     @Builder
-    public AlbumDTO(String title, String imageUrl, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs, int quantityToAddToCart) {
+    public AlbumDTO(String title, String imageUrl, BigDecimal price, int stock, MediumType mediumType, String releaseDate, AlbumId albumId, String label, Set<SongDTO> songs, int quantityToAddToCart, long longId) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.price = price;
@@ -37,6 +38,7 @@ public class AlbumDTO implements Serializable {
         this.label = label;
         this.songs = songs;
         this.quantityToAddToCart = quantityToAddToCart;
+        this.longId = longId;
     }
 
 }

@@ -7,6 +7,7 @@ import sharedrmi.application.dto.SongDTO;
 
 import javax.ejb.Remote;
 import javax.naming.NoPermissionException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,5 +25,7 @@ public interface ShoppingCartService extends Serializable {
     void removeLineItemFromCart(CartLineItemDTO cartLineItemDTO) throws NoPermissionException;
 
     void clearCart() throws NoPermissionException;
+
+    void buyShoppingCart(String ownerId) throws IOException;
 
 }
